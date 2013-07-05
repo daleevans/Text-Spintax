@@ -49,7 +49,7 @@ sub render {
 sub equal_path_weight {
    my $self = shift;
    $self->weight($self->num_paths);
-   foreach my $child (@{$self->children}) {
+   foreach my $child ($self->children ? @{$self->children} : ()) {
       $child->equal_path_weight;
    }
 }
@@ -58,14 +58,14 @@ sub num_paths {
    my $self = shift;
    if ($self->type eq "spin") {
       my $num_paths = 0;
-      foreach my $child (@{$self->children}) {
+      foreach my $child ($self->children ? @{$self->children} : ()) {
          $num_paths += $child->num_paths;
       }
       return $num_paths;
    }
    else {
       my $num_paths = 1;
-      foreach my $child (@{$self->children}) {
+      foreach my $child ($self->children ? @{$self->children} : ()) {
          $num_paths *= $child->num_paths;
       }
       return $num_paths;
