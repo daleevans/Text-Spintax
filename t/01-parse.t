@@ -20,4 +20,3 @@ use Text::Spintax;
    ok(scalar keys %seen == 2);
 }
 
-diag( "Testing parsing and rendering" );

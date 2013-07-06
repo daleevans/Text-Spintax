@@ -81,6 +81,8 @@ has 'curr' => (
 
 =cut
 
+our $lexer;
+
 sub parse {
    my $self = shift;
    my ($text) = @_;
@@ -90,9 +92,10 @@ sub parse {
       PIPE            \|
       TEXT            [^{}|]+
    );
-
-   my $lexer = Parse::Lex->new(@lex);
-   $lexer->skip('');
+   if (not defined $lexer) {
+      $lexer = Parse::Lex->new(@lex);
+      $lexer->skip('');
+   }
    $lexer->from($text);
 
    my $parser = new parser();
