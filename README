@@ -73,3 +73,7 @@ CONTRIBUTOR WILL BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, OR
 CONSEQUENTIAL DAMAGES ARISING IN ANY WAY OUT OF THE USE OF THE PACKAGE,
 EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+The Parse::Yapp module and its related modules and shell scripts are copyright (c) 1998-2001 Francois Desarmenien, France. All rights reserved.
+
+You may use and distribute them under the terms of either the GNU General Public License or the Artistic License, as specified in the Perl README file.
+

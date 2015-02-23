@@ -11,4 +11,3 @@ foreach (1 .. 1000) {
    $count{$node->render}++;
 }
 print Dump(\%count);
-

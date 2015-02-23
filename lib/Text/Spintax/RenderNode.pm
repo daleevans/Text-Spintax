@@ -1,28 +1,24 @@
 package Text::Spintax::RenderNode;
 
-use Text::Spintax::Mo;
+use strict;
+use warnings FATAL => 'all';
 
-has 'parent' => (
-   is => 'rw',
-);
-
-has 'children' => (
-   is => 'rw',
-);
-
-has 'weight' => (
-   is => 'rw',
-);
-
-has 'text' => (
-   is => 'rw',
-);
-
-has 'type' => (
-   is => 'rw',
-);
+sub parent { scalar @_ == 2 and $_[0]->{parent} = $_[1]; return $_[0]->{parent} }
+sub children { scalar @_ == 2 and $_[0]->{children} = $_[1]; return $_[0]->{children} }
+sub weight { scalar @_ == 2 and $_[0]->{weight} = $_[1]; return $_[0]->{weight} }
+sub text { scalar @_ == 2 and $_[0]->{text} = $_[1]; return $_[0]->{text} }
+sub type { scalar @_ == 2 and $_[0]->{type} = $_[1]; return $_[0]->{type} }
 
 =head1 SUBROUTINES/METHODS
+
+=cut
+
+sub new {
+   my $class = shift;
+   my %init = @_;
+   my $self = bless \%init, $class;
+   return $self;
+}
 
 =head2 render
 

@@ -3,8 +3,7 @@ package Text::Spintax;
 use 5.006;
 use strict;
 use warnings FATAL => 'all';
-use Text::Spintax::Mo;
-use Text::Spintax::parser;
+use Text::Spintax::grammar;
 use Text::Spintax::RenderNode;
 use Parse::Lex;
 
@@ -14,11 +13,11 @@ Text::Spintax - A parser and renderer for spintax formatted text.
 
 =head1 VERSION
 
-Version 0.01
+Version 0.04
 
 =cut
 
-our $VERSION = '0.01';
+our $VERSION = '0.04';
 
 
 =head1 SYNOPSIS
@@ -65,15 +64,22 @@ If you want every possible outcome to be equally likely, then call equal_path_we
 
 =cut
 
-has 'root' => (
-   is => 'rw',
-);
-
-has 'curr' => (
-   is => 'rw',
-);
+sub root { scalar @_ == 2 and $_[0]->{root} = $_[1]; return $_[0]->{root} }
+sub curr { scalar @_ == 2 and $_[0]->{curr} = $_[1]; return $_[0]->{curr} }
 
 =head1 SUBROUTINES/METHODS
+
+=head2 new
+
+   Returns a Text::Spintax object
+
+=cut
+
+sub new {
+   my $class = shift;
+   my $self = bless {}, $class;
+   return $self;
+}
 
 =head2 parse
 
@@ -98,7 +104,7 @@ sub parse {
    }
    $lexer->from($text);
 
-   my $parser = new parser();
+   my $parser = new Text::Spintax::grammar();
    $parser->YYData->{lexer} = $lexer;
    my $root = Text::Spintax::RenderNode->new(type => "sequence", weight => 1);
    $self->root($root);
@@ -222,7 +228,6 @@ L<http://search.cpan.org/dist/Text-Spintax/>
 =head1 ACKNOWLEDGEMENTS
 
 Francois Desarmenien <francois@fdesar.net> for writing Parse::YAPP
-Ingy döt Net <ingy@ingy.net> for writing Mo and mo-inline
 Philippe Verdret for writing Parse::Lex
 
 =head1 LICENSE AND COPYRIGHT
