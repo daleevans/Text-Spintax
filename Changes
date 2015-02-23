@@ -1,7 +1,7 @@
 Revision history for Text-Spintax
 
 0.05    2015-02-23 10:39
-        Removing Mo-inline
+        Removing Mo-inline, adding kwalitee, tidying
 0.04    2015-02-22 21:29
         Fixing documentation test due to Ingy dot Net having non-ASCII characters in his name
 0.03    2015-02-22 19:49

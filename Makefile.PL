@@ -16,12 +16,24 @@ my %params = (
     },
     BUILD_REQUIRES => {
         'Test::More' => 0,
+        'Test::Kwalitee::Extra' => 0,
     },
     PREREQ_PM => {
         'Parse::Lex' => "2.20",
     },
     dist  => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
     clean => { FILES => 'Text-Spintax-*' },
+    META_MERGE => {
+        "meta-spec" => { version => 2 },
+        provides => ["Text::Spintax","Text::Spintax::RenderNode"],
+        resources => {
+            repository => {
+		type => "git",
+		url => "https://github.com/daleevans/Text-Spintax.git",
+		web => "https://github.com/daleevans/Text-Spintax",
+	    },
+	},
+    }
 );
 
 WriteMakefile(%params);

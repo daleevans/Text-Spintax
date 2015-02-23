@@ -10,6 +10,7 @@
 package Text::Spintax::grammar;
 use vars qw ( @ISA );
 use strict;
+use warnings;
 
 @ISA= qw ( Text::Spintax::Parse::Yapp::Driver );
 #Included Parse/Yapp/Driver.pm file----------------------------------------
@@ -34,6 +35,7 @@ package Text::Spintax::Parse::Yapp::Driver;
 require 5.004;
 
 use strict;
+use warnings;
 
 use vars qw ( $VERSION $COMPATIBLE $FILENAME );
 
