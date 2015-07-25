@@ -1,5 +1,7 @@
 Revision history for Text-Spintax
 
+0.06    2015-07-25 09:21
+        Fixing crash when failing to parse.
 0.05    2015-02-23 10:39
         Removing Mo-inline, adding kwalitee, tidying
 0.04    2015-02-22 21:29
